@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+   labels:
+     app: webapp
+     env: prod
+   name: java-webapp-rs
+spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: webapp
+    template:
+      metadata:
+        name: java-webapp
+        labels:
+           app: webapp
+           env: prod
+      spec:
+        containers:
+        - image: nginx
+          name: webapp-c
+          ports:
+          - containerPort: 80
+
+
