@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   labels:
+      app: webapp
+      env: production
+   name: myapp-d
+spec:
+   replicas: 3
+   selector:
+      matchLabels:
+         app: webapp
+   template:
+     metadata:
+        labels:
+           app: webapp
+           env: production
+        name: mypod-d
+     spec:
+       containers:
+         - image: nginx
+           name: nginx-c
+           ports:
+             - containerPort: 80
