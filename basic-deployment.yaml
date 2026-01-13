@@ -4,7 +4,7 @@ metadata:
    labels:
       app: webapp
       env: production
-   name: myapp-d
+   name:  httpd-frontend
 spec:
    replicas: 3
    selector:
@@ -18,7 +18,7 @@ spec:
         name: mypod-d
      spec:
        containers:
-         - image: nginx
+         - image: httpd:2.4-alpine
            name: nginx-c
            ports:
              - containerPort: 80
