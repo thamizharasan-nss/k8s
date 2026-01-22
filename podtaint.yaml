@@ -9,9 +9,8 @@ spec:
   containers:
   - name: webapp
     image: nginx 
-  ports:
-  - containerPort: 8080
-    port: 8080
+    ports:
+    - containerPort: 8080
   restartPolicy: OnFailure 
   tolerations:
   - key: "app"
