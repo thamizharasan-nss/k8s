@@ -9,16 +9,26 @@ spec:
    replicas: 3
    selector:
       matchLabels:
-         app: webapp
+         color: blue
    template:
      metadata:
         labels:
-           app: webapp
+           color: blue
            env: production
         name: mypod-d
      spec:
        containers:
-         - image: httpd:2.4-alpine
+         - image: nginx
            name: nginx-c
            ports:
              - containerPort: 80
+       affinity:
+         nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: color
+                  operator: In
+                  values:
+                  - blue
+             
