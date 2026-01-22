@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: apppod 
+  labels:
+     app: webapp
+     env: prod 
+spec:
+  containers:
+  - name: web-c
+    image: nginx
+    ports:
+    - containerPort: 8080
+    resources:
+      requests:
+        cpu: "0.5"
+        memory: "50Mi"
+      limits:
+        cpu: "1.0"
+        memory: "100Mi"
+  restartPolicy: OnFailure  
+  
+  
