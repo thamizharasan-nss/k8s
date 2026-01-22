@@ -15,6 +15,6 @@ spec:
   tolerations:
   - key: "app"
     operator: "Equal"
-    value: webapp 
-    effect: Noschedule 
+    value: "webapp"
+    effect: "NoSchedule"
   
