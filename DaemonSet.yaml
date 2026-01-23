@@ -4,6 +4,14 @@ metadata:
   name: elasticsearch
   namespace: kube-system
 spec:
-  containers:
-  - name: elasticsearch-d 
-    image: registry.k8s.io/fluentd-elasticsearch:1.20
+  selector:
+    matchLabels:
+      name: fluentd-elasticsearch
+  template:
+    metadata:
+      labels:
+        name: fluentd-elasticsearch    
+    spec:
+     containers:
+     - name: elasticsearch-d 
+       image: registry.k8s.io/fluentd-elasticsearch:1.20
